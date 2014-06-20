@@ -1,11 +1,5 @@
 package storm;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +17,10 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 
 public class CounterBolt extends BaseRichBolt {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int currentIteration = 0;
 	int totalOnline = 0;
 	int totalOffline = 0;
@@ -33,7 +31,7 @@ public class CounterBolt extends BaseRichBolt {
 	public static SteamGui gui = null;
 	
 	@Override
-	public void prepare(Map stormConf, TopologyContext context,
+	public void prepare(@SuppressWarnings("rawtypes") Map stormConf, TopologyContext context,
 			OutputCollector collector) {
 		System.out.println("Created gui\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		log("created gui\n");
@@ -105,13 +103,13 @@ public class CounterBolt extends BaseRichBolt {
 		collector.emit(tuple);
 	}
 	
-	private void updateInvalidIds(String badIdsString) {
-		String[] badIds = badIdsString.split(",");
-		for(String badId : badIds){
-			totalInvalid++;
-			gui.updateInvalidPane(totalInvalid, badId);
-		}
-	}
+//	private void updateInvalidIds(String badIdsString) {
+//		String[] badIds = badIdsString.split(",");
+//		for(String badId : badIds){
+//			totalInvalid++;
+//			gui.updateInvalidPane(totalInvalid, badId);
+//		}
+//	}
 
 	private void updateQueryCount(int numQueries){
 		gui.updateQueryPane(numQueries);

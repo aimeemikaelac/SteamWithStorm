@@ -21,6 +21,10 @@ import backtype.storm.topology.base.BaseRichSpout;
 import backtype.storm.tuple.Fields;
 
 public class IDGeneratorSpout extends BaseRichSpout {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final long BASE = 76561197960265729L;
 	private static final int SPACE = (int) 176E6;
 	public static final int NUM_QUERIES = 704;
@@ -37,7 +41,7 @@ public class IDGeneratorSpout extends BaseRichSpout {
 	private HashMap<Object, List<Object>> objectIdMap;
 	
 	@Override
-	public void open(Map conf, TopologyContext context,
+	public void open(@SuppressWarnings("rawtypes") Map conf, TopologyContext context,
 			SpoutOutputCollector collector) {
 		rand = new Random(System.currentTimeMillis());
 		queryIds = new HashSet<Long>();

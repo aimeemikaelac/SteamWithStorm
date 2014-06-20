@@ -16,7 +16,11 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 
 public class SteamQueryBolt extends BaseBasicBolt {
-	private static final String key = "10FD1E43E733E34BCACA0DD36CFEB899"; 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+//	private static final String key = "10FD1E43E733E34BCACA0DD36CFEB899"; 
 	private final String baseUrl = "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=10FD1E43E733E34BCACA0DD36CFEB899&steamids=";
 	/* example JSON:
 	 * http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=10FD1E43E733E34BCACA0DD36CFEB899&steamids=76561197970347865&format=json

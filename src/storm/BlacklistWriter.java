@@ -12,11 +12,14 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
-import backtype.storm.topology.BasicOutputCollector;
 import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.topology.base.BaseRichBolt;
 import backtype.storm.tuple.Tuple;
 public class BlacklistWriter extends BaseRichBolt {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public static int totalBadIds = 0;
 	
 	@Override
@@ -67,7 +70,7 @@ public class BlacklistWriter extends BaseRichBolt {
 	}
 
 	@Override
-	public void prepare(Map stormConf, TopologyContext context,
+	public void prepare(@SuppressWarnings("rawtypes") Map stormConf, TopologyContext context,
 			OutputCollector collector) {
 		if(IDGeneratorSpout.fileLock == null){
 			IDGeneratorSpout.fileLock = new ReentrantLock();

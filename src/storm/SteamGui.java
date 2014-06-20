@@ -21,6 +21,10 @@ import org.jfree.data.time.TimeSeriesCollection;
 
 
 public class SteamGui extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	TimeSeries online;
 	ChartPanel chartPanel;
 	JPanel chartPane;

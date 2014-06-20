@@ -17,6 +17,11 @@ import backtype.storm.tuple.Tuple;
 
 public class StormResultParser extends BaseBasicBolt {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public void execute(Tuple input, BasicOutputCollector collector) {
 		int numOnline = 0;
