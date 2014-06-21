@@ -82,10 +82,6 @@ public class CounterBolt extends BaseRichBolt {
 			totalOffline += numOffline;
 			numQueries++;
 //			updateGui();
-//			String[] badIds = badIdsString.split(",");
-//			for(String badId : badIds){
-//				writeIdToFile(badId);
-//			}
 			
 			updateGuiPercentage(numQueries);
 			
@@ -100,6 +96,7 @@ public class CounterBolt extends BaseRichBolt {
 		totalQueries++;
 		updateQueryCount(totalQueries);
 		tuple.add(badIdsString);
+		tuple.add(input.getValueByField("ip_address"));
 		collector.emit(tuple);
 	}
 	
@@ -118,7 +115,7 @@ public class CounterBolt extends BaseRichBolt {
 	private void updateGuiPercentage(int numQueries2) {
 		log("update gui\n");
 		System.out.println("Updated gui\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-		double percentage = (double) numQueries / (double) IDGeneratorSpout.NUM_QUERIES * 100.0;
+		double percentage = (double) numQueries / (double) IDGenerator.NUM_QUERIES * 100.0;
 		gui.updateProgressBar(percentage);
 	}
 
@@ -136,7 +133,10 @@ public class CounterBolt extends BaseRichBolt {
 
 	@Override
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		declarer.declare(new Fields("badIds"));		
+		List<String> fields = new ArrayList<String>();
+		fields.add("badIds");
+		fields.add("ip_address");
+		declarer.declare(new Fields(fields));
 	}
 	
 	public static void main(String[] args) throws AlreadyAliveException, InvalidTopologyException{
@@ -146,7 +146,7 @@ public class CounterBolt extends BaseRichBolt {
 		
 		builder.setBolt("requester", new SteamQueryBolt(), 3).shuffleGrouping("id_generator");
 		
-		builder.setBolt("parser", new StormResultParser(), 3).shuffleGrouping("requester");
+		builder.setBolt("parser", new StormResultParserBolt(), 3).shuffleGrouping("requester");
 		
 		builder.setBolt("counter", new CounterBolt(), 1).shuffleGrouping("parser");
 		

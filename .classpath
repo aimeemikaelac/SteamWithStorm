@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="/home/michael/storm/storm-console-logging-0.9.0.1.jar"/>
-	<classpathentry kind="lib" path="/home/michael/storm/storm-core-0.9.0.1.jar"/>
-	<classpathentry kind="lib" path="/home/michael/storm/storm-netty-0.9.0.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="lib/jfreechart-1.0.17.jar"/>
 	<classpathentry kind="lib" path="/home/michael/storm/lib/asm-4.0.jar"/>
 	<classpathentry kind="lib" path="/home/michael/storm/lib/carbonite-1.5.0.jar"/>
 	<classpathentry kind="lib" path="/home/michael/storm/lib/clj-stacktrace-0.2.2.jar"/>
@@ -58,22 +57,8 @@
 	<classpathentry kind="lib" path="/home/michael/storm/lib/tools.macro-0.1.0.jar"/>
 	<classpathentry kind="lib" path="/home/michael/storm/lib/tools.nrepl-0.2.3.jar"/>
 	<classpathentry kind="lib" path="/home/michael/storm/lib/zookeeper-3.3.3.jar"/>
-	<classpathentry kind="lib" path="hamcrest-core-1.3.jar"/>
-	<classpathentry kind="lib" path="jcommon-1.0.21.jar"/>
-	<classpathentry kind="lib" path="jfreechart-1.0.17-experimental.jar"/>
-	<classpathentry kind="lib" path="jfreechart-1.0.17-swt.jar"/>
-	<classpathentry kind="lib" path="jfreechart-1.0.17.jar"/>
-	<classpathentry kind="lib" path="jfreesvg-1.4.jar"/>
-	<classpathentry kind="lib" path="junit-4.11.jar"/>
-	<classpathentry kind="lib" path="orsoncharts-1.0-eval.jar"/>
-	<classpathentry kind="lib" path="orsonpdf-1.3-eval.jar"/>
-	<classpathentry kind="lib" path="servlet.jar"/>
-	<classpathentry kind="lib" path="swtgraphics2d.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry exported="true" kind="lib" path="classes">
-		<attributes>
-			<attribute name="optional" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="/home/michael/storm/storm-console-logging-0.9.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/michael/storm/storm-core-0.9.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/michael/storm/storm-netty-0.9.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

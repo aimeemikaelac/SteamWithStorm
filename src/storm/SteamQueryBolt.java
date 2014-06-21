@@ -30,6 +30,7 @@ public class SteamQueryBolt extends BaseBasicBolt {
 		List<String> fields = new ArrayList<String>();
 		fields.add("result");
 		fields.add("iteration");
+		fields.add("ip_address");
 		declarer.declare(new Fields(fields));
 	}
 
@@ -71,6 +72,7 @@ public class SteamQueryBolt extends BaseBasicBolt {
 		List<Object> tuple = new ArrayList<Object>();
 		tuple.add(result);
 		tuple.add(iteration);
+		tuple.add(input.getValueByField("ip_address"));
 		collector.emit(tuple);
 	}
 
