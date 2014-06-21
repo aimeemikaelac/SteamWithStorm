@@ -69,7 +69,7 @@ public class IDGenerator implements Runnable{
 		
 		@Override
 		public void run() {
-			System.out.println("Started id generator thread\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+//			System.out.println("Started id generator thread\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 			ServerSocket receiveSocket = null;
 			Socket connectionSocket;
 			try {
@@ -160,11 +160,11 @@ public class IDGenerator implements Runnable{
 		//continue while topology is up
 		String currentQueryString = "";
 		int currentQueryCount = 0;
-		System.out.println("before read blacklist");
+//		System.out.println("before read blacklist");
 		readFromBlacklistFile();
-		System.out.println("after read blacklist");
+//		System.out.println("after read blacklist");
 		while(continueExecuting.get()){
-			System.out.println("IDGenerator run method ------------------- while loop");
+//			System.out.println("IDGenerator run method ------------------- while loop");
 			//read any newly received blacklisted ids off of queue into set
 			processBlacklistIds();
 			

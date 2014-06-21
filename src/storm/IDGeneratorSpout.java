@@ -55,7 +55,7 @@ public class IDGeneratorSpout extends BaseRichSpout {
 	}
 	@Override
 	public void nextTuple() {
-		System.out.println("Spout creating tuple\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+//		System.out.println("Spout creating tuple\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		while(!idlist.isEmpty()) {
 			String currentQuery = idlist.poll();
 			
@@ -64,7 +64,7 @@ public class IDGeneratorSpout extends BaseRichSpout {
 			tuple.add(new Integer(queryIteration.get()).toString());
 			tuple.add(ipaddress);
 			Object id = (Object)(new Integer(objectIds));
-			System.out.println("Spout emitting tuple\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+//			System.out.println("Spout emitting tuple\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 			collector.emit(tuple, id);
 			objectIds++;
 			objectIdMap.put(id, tuple);
