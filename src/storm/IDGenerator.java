@@ -154,7 +154,7 @@ public class IDGenerator implements Runnable{
 
 	@Override
 	public void run() {
-		System.out.println("IDGenerator run method");
+//		System.out.println("IDGenerator run method");
 		execService.execute(acceptConnectionsTask);
 		
 		//continue while topology is up
@@ -187,7 +187,7 @@ public class IDGenerator implements Runnable{
 			//generate enough ids to perform 704 queries with 100 ids per query
 			//generate a random id not in the set and blacklist
 			long nextId = generateRandomId();
-			System.out.println("Random id: "+nextId);
+//			System.out.println("Random id: "+nextId);
 			//add to set of ids and current string of ids
 			currentQueryString += nextId;
 			currentQueryString += ",";

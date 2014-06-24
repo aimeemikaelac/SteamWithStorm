@@ -33,7 +33,7 @@ public class CounterBolt extends BaseRichBolt {
 	@Override
 	public void prepare(@SuppressWarnings("rawtypes") Map stormConf, TopologyContext context,
 			OutputCollector collector) {
-		System.out.println("Created gui\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+//		System.out.println("Created gui\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		log("created gui\n");
 		createGui();
 		this.collector = collector;
@@ -91,6 +91,7 @@ public class CounterBolt extends BaseRichBolt {
 			updateGui();
 			totalOnline = 0;
 			totalOffline = 0;
+			updateGuiPercentage(0);
 		}
 //		updateInvalidIds(badIdsString);
 		totalQueries++;
@@ -114,14 +115,14 @@ public class CounterBolt extends BaseRichBolt {
 
 	private void updateGuiPercentage(int numQueries2) {
 		log("update gui\n");
-		System.out.println("Updated gui\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+//		System.out.println("Updated gui\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		double percentage = (double) numQueries / (double) IDGenerator.NUM_QUERIES * 100.0;
 		gui.updateProgressBar(percentage);
 	}
 
 	private void updateGui() {
 		log("update gui\n");
-		System.out.println("Updated gui\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+//		System.out.println("Updated gui\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		int totalSampledUsers = totalOnline + totalOffline;
 		double percentageOnline = (double) totalOnline / (double) totalSampledUsers;
 		double totalUsers = 76E6;

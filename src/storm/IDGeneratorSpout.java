@@ -3,7 +3,6 @@ package storm;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -25,9 +24,9 @@ public class IDGeneratorSpout extends BaseRichSpout {
 	private static final long serialVersionUID = 1L;
 	private SpoutOutputCollector collector;
 //	private int queriesMade;
-	private int objectIds;
+//	private int objectIds;
 	private AtomicInteger queryIteration;
-	private HashMap<Object, List<Object>> objectIdMap;
+//	private HashMap<Object, List<Object>> objectIdMap;
 	private IDGenerator generator;
 	private ExecutorService execService;
 	private ConcurrentLinkedQueue<String> idlist;
@@ -36,10 +35,10 @@ public class IDGeneratorSpout extends BaseRichSpout {
 	@Override
 	public void open(@SuppressWarnings("rawtypes") Map conf, TopologyContext context,
 			SpoutOutputCollector collector) {
-		objectIdMap = new HashMap<Object, List<Object>>();
+//		objectIdMap = new HashMap<Object, List<Object>>();
 		this.collector = collector;
 //		queriesMade = 0;
-		objectIds = 0;
+//		objectIds = 0;
 		queryIteration = new AtomicInteger(0);
 		execService = Executors.newCachedThreadPool();
 		idlist = new ConcurrentLinkedQueue<String>();
@@ -63,11 +62,12 @@ public class IDGeneratorSpout extends BaseRichSpout {
 			tuple.add(currentQuery);
 			tuple.add(new Integer(queryIteration.get()).toString());
 			tuple.add(ipaddress);
-			Object id = (Object)(new Integer(objectIds));
+//			Object id = (Object)(new Integer(objectIds));
 //			System.out.println("Spout emitting tuple\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-			collector.emit(tuple, id);
-			objectIds++;
-			objectIdMap.put(id, tuple);
+//			collector.emit(tuple, id);
+			collector.emit(tuple);
+//			objectIds++;
+//			objectIdMap.put(id, tuple);
 			
 //			queriesMade++;
 		}
